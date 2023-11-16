@@ -575,9 +575,16 @@ export const useChatStore = create<ChatStore>()(
                             if (data && data.data && data.data.length > 0) {
                                 const imageUrl = data.data[0].url;
                                 botMessage.content += `\nImage URL: ${imageUrl}`;
+                                botMessage.content += `\n![Generated Image](${imageUrl})`; // Markdown 格式
+                                // 如果您的平台支持 HTML，您可以直接使用 HTML img 标签
+                                botMessage.content += `\n<img src="${imageUrl}" alt="Generated Image" />`; // HTML 格式
+                                // 保存图片 URL 到对话历史记录，如果有必要
                                 // Save the image URL to the conversation history here
                                 // ...
                                 get().onNewMessage(botMessage);
+                                botMessage.streaming = false;
+                                ChatControllerPool.remove(session.id, botMessage.id);
+
                             } else {
                                 throw new Error('No image data returned from API.');
                             }
