@@ -1279,7 +1279,7 @@ function _Chat() {
                                         />
                                     </div>
                                     {!isUser &&
-                                        message.model == "midjourney" &&
+                                        // message.model == "midjourney" &&
                                         message.attr?.finished &&
                                         message.attr?.taskId &&
                                         message.attr?.options?.length && (
