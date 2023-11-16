@@ -453,7 +453,7 @@ export const useChatStore = create<ChatStore>()(
                     content.toLowerCase().startsWith("/mj") ||
                     content.toLowerCase().startsWith("/MJ")
                 ) {
-                    botMessage.model = "midjourney";
+                    // botMessage.model = "midjourney";
                     const startFn = async () => {
                         const prompt = content.substring(3).trim();
                         let action: string = "IMAGINE";
@@ -552,7 +552,7 @@ export const useChatStore = create<ChatStore>()(
                     get().onNewMessage(botMessage);
                     set(() => ({}));
                     extAttr?.setAutoScroll(true);
-                }else if(botMessage.model = "dall-e-3"){
+                }else if(botMessage.model == "dall-e-3"){
                     const prompt = content; // Replace with your actual prompt
                     const n = 1; // The number of images to generate
                     const size = "1024x1024"; // The size of the images
