@@ -453,7 +453,7 @@ export const useChatStore = create<ChatStore>()(
                     content.toLowerCase().startsWith("/mj") ||
                     content.toLowerCase().startsWith("/MJ")
                 ) {
-                    botMessage.model = "midjourney";
+                    // botMessage.model = "midjourney";
                     const startFn = async () => {
                         const prompt = content.substring(3).trim();
                         let action: string = "IMAGINE";
